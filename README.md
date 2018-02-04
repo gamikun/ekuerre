@@ -14,8 +14,14 @@ The process will run in port *32491* so you will access in your browser like thi
 
     http://localhost:32491/qr.png?data=HelloWorld
 
-# Good luck!
-
-# Extra
+## Extra
 
 The name stands for eQR in slang spanish.
+
+# Long live and prosper!
+
+# TODO
+
+* Add binary for calling the service as "ekuerre" instead of "python -m ekuerre"
+* Tests
+* Configurable port
