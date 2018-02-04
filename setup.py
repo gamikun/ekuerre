@@ -12,7 +12,7 @@ setup(
   version = ekuerre.__version__,
   description = 'QR web service provider',
   long_description = open(join(basepath, 'README.txt')).read(),
-  scripts = [join(binpath, 'ekuerre')],
+  scripts = [],
   install_requires=['qrcode', 'pillow'],
   author = 'Gamaliel Espinoza M.',
   author_email = 'gamaliel.espinoza@gmail.com',
