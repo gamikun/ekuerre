@@ -1,2 +1,3 @@
 qrcode
 pillow
+pybarcode==0.8b1
