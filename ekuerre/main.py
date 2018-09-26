@@ -53,10 +53,9 @@ def application(environ, start_response):
             writer=barcode.writer.ImageWriter(),
             writer_options=woptions,
         )
-        print(aja)
 
         headers = [
-            ('Content-Type', 'text/plain'),
+            ('Content-Type', 'image/png'),
         ]
         start_response('200 OK', headers)
         return [output.getvalue()]
