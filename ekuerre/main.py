@@ -1,6 +1,11 @@
 from io import BytesIO
-from urlparse import parse_qs
-from StringIO import StringIO
+from sys import version_info
+if version_info > (3, 0):
+    from urllib.parse import parse_qs
+    from io import BytesIO as DataIO
+else:
+    from urlparse import parse_qs
+    from StringIO import StringIO as DataIO
 import qrcode
 import barcode
 
@@ -47,7 +52,7 @@ def application(environ, start_response):
         if text_distance is not None:
             woptions['text_distance'] = text_distance
 
-        output = StringIO()
+        output = DataIO()
         aja = barcode.generate(kind, data,
             output=output,
             writer=barcode.writer.ImageWriter(),
