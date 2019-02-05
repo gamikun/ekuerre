@@ -1,5 +1,6 @@
 from io import BytesIO
 from sys import version_info
+from collections import defaultdict
 if version_info > (3, 0):
     from urllib.parse import parse_qs
     from io import BytesIO as DataIO
@@ -15,11 +16,21 @@ def application(environ, start_response):
     path = environ['PATH_INFO']
     if path.startswith('/qr.png'):
         params = parse_qs(environ['QUERY_STRING'])
+        options = {}
         data = params.get('data', [None])[0]
+        fill_color = params.get('fill_color', [None])[0]
+        back_color = params.get('back_color', [None])[0]
+
+        if fill_color:
+            options['fill_color'] = fill_color
+
+        if back_color:
+            options['back_color'] = back_color
+
         code = qrcode.QRCode()
         code.add_data(data)
         code.make(fit=True)
-        image = code.make_image()
+        image = code.make_image(**options)
         the_bytes = BytesIO()
         image.save(the_bytes)
 
