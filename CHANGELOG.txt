@@ -1,0 +1,4 @@
+1.1.0 (February 4th, 2019)
+---------------------------
+
+* Support for fill_color and back_colors, inherited rom qrcode python module.
